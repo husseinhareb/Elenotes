@@ -12,19 +12,35 @@ function createNote() {
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'buttonsContainer';
 
-  // Create the first button
-  const add = document.createElement('button');
-  add.textContent = 'Button 1';
+  // Create the first button (SAVE or EDIT)
+  const saveEditButton = document.createElement('button');
+  saveEditButton.textContent = 'SAVE';
 
-  // Create the second button
-  const button2 = document.createElement('button');
-  button2.textContent = 'Button 2';
+  // Create the second button (DELETE)
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'DELETE';
+
+  // Function to toggle between SAVE and EDIT
+  saveEditButton.addEventListener('click', function() {
+    if (saveEditButton.textContent === 'SAVE') {
+      inputText.disabled = true;
+      saveEditButton.textContent = 'EDIT';
+    } else {
+      inputText.disabled = false;
+      saveEditButton.textContent = 'SAVE';
+    }
+  });
+
+  // Function to delete divNote on DELETE click
+  deleteButton.addEventListener('click', function() {
+    divNote.remove();
+  });
 
   // Append input and buttons to the div
   divNote.appendChild(inputText);
   divNote.appendChild(buttonsContainer);
-  buttonsContainer.appendChild(add);
-  buttonsContainer.appendChild(button2);
+  buttonsContainer.appendChild(saveEditButton);
+  buttonsContainer.appendChild(deleteButton);
 
   // Get the notesContainer and append the divNote to it
   const notesContainer = document.getElementById('notesContainer');
