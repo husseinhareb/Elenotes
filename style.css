@@ -12,9 +12,6 @@ body {
   background-color: #98cbde;
 }
 
-#notesContainer{
-  margin-top: 20px;
-}
 .divNote {
   border: 2px solid #EAC5D8;
   background-color: #7FBEEB;
@@ -28,16 +25,16 @@ body {
 
 }
 
-/* Hide scrollbar for webkit-based browsers */
+
 #notesContainer {
   overflow-y: scroll;
-  overscroll-behavior-y: none; /* Disable bounce effect */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  overscroll-behavior-y: none; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 #notesContainer::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, etc. */
+  display: none; 
 }
 
 
@@ -49,7 +46,7 @@ body {
 .buttonsContainer {
   display: flex;
   justify-content: center;
-  margin-top: 10px; /* Adjust spacing as needed */
+  margin-top: 10px; 
 }
 
 .buttonsContainer button {
@@ -125,4 +122,15 @@ a:hover{
 
 a:hover:after{
   width: 100%;
+}
+
+.new-note {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.new-note.show {
+  opacity: 1;
+  transform: translateY(0);
 }
