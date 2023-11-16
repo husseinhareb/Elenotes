@@ -4,11 +4,12 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 300,
+    width: 280,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
     },
+    frame: false,
   });
 
   mainWindow.loadFile('index.html');
