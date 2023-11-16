@@ -6,7 +6,7 @@ function createNote() {
   // Create an input element
   const inputText = document.createElement('input');
   inputText.type = 'text';
-  inputText.placeholder = 'Enter text...';
+  inputText.placeholder = 'Enter Your Note...';
   inputText.className = "inputText";
   // Create a container for buttons
   const buttonsContainer = document.createElement('div');
@@ -14,12 +14,12 @@ function createNote() {
 
   // Create the first button (SAVE or EDIT)
   const saveEditButton = document.createElement('button');
-  saveEditButton.innerHTML = '<i class="fas fa-save"></i>'; // Font Awesome save icon
-
+  saveEditButton.innerHTML = '<a href="#"><span><i class="fas fa-save"></i></span></a>'; // Font Awesome save icon
+  saveEditButton.className = 'saveEditButton'
   // Create the second button (DELETE) using Font Awesome icons
   const deleteButton = document.createElement('button');
-  deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Font Awesome trash icon
-
+  deleteButton.innerHTML = '<a href="#"><span><i class="fa fa-trash"></i></span></a>'; // Font Awesome trash icon
+  deleteButton.className = 'deleteButton'
   // Function to toggle between SAVE and EDIT
   saveEditButton.addEventListener('click', function() {
     const icon = saveEditButton.querySelector('i');
@@ -50,3 +50,4 @@ function createNote() {
   const notesContainer = document.getElementById('notesContainer');
   notesContainer.appendChild(divNote);
 }
+
