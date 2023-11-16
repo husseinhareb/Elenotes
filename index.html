@@ -5,16 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elenotes</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="renderer.js"></script>
 </head>
-<body>
-  <div id="mySidepanel" class="sidepanel">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">+</a>
-    <a href="#">-</a>
+<body onload="createNote()">
+
+  <div id="notesContainer">
+    <!-- Div for dynamically created notes will be appended here -->
   </div>
-  <div id="notesContainer" />
-  <input type="text" value="+" id="addNote"
-    
+  
+  <!-- Move the button inside the body, after the notesContainer -->
+  <button id="addNote" onclick="createNote()">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+  
+
 </body>
 </html>
