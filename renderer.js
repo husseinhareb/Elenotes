@@ -14,20 +14,24 @@ function createNote() {
 
   // Create the first button (SAVE or EDIT)
   const saveEditButton = document.createElement('button');
-  saveEditButton.textContent = 'SAVE';
+  saveEditButton.innerHTML = '<i class="fas fa-save"></i>'; // Font Awesome save icon
 
-  // Create the second button (DELETE)
+  // Create the second button (DELETE) using Font Awesome icons
   const deleteButton = document.createElement('button');
-  deleteButton.textContent = '';
+  deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Font Awesome trash icon
 
   // Function to toggle between SAVE and EDIT
   saveEditButton.addEventListener('click', function() {
-    if (saveEditButton.textContent === 'SAVE') {
+    const icon = saveEditButton.querySelector('i');
+
+    if (icon.classList.contains('fa-save')) {
       inputText.disabled = true;
-      saveEditButton.textContent = 'EDIT';
+      icon.classList.remove('fa-save');
+      icon.classList.add('fa-pencil-alt');
     } else {
       inputText.disabled = false;
-      saveEditButton.textContent = 'SAVE';
+      icon.classList.remove('fa-pencil-alt');
+      icon.classList.add('fa-save');
     }
   });
 
