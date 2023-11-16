@@ -7,7 +7,7 @@ function createNote() {
   const inputText = document.createElement('input');
   inputText.type = 'text';
   inputText.placeholder = 'Enter text...';
-
+  inputText.className = "inputText";
   // Create a container for buttons
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'buttonsContainer';
@@ -18,7 +18,7 @@ function createNote() {
 
   // Create the second button (DELETE)
   const deleteButton = document.createElement('button');
-  deleteButton.textContent = 'DELETE';
+  deleteButton.textContent = '';
 
   // Function to toggle between SAVE and EDIT
   saveEditButton.addEventListener('click', function() {
@@ -38,9 +38,9 @@ function createNote() {
 
   // Append input and buttons to the div
   divNote.appendChild(inputText);
+  buttonsContainer.appendChild(deleteButton);
   divNote.appendChild(buttonsContainer);
   buttonsContainer.appendChild(saveEditButton);
-  buttonsContainer.appendChild(deleteButton);
 
   // Get the notesContainer and append the divNote to it
   const notesContainer = document.getElementById('notesContainer');
