@@ -7,7 +7,8 @@ function createNote() {
   const inputText = document.createElement('input');
   inputText.type = 'text';
   inputText.placeholder = 'Enter Your Note...';
-  inputText.className = "inputText";
+  inputText.className = 'inputText';
+  
   // Create a container for buttons
   const buttonsContainer = document.createElement('div');
   buttonsContainer.className = 'buttonsContainer';
@@ -15,11 +16,13 @@ function createNote() {
   // Create the first button (SAVE or EDIT)
   const saveEditButton = document.createElement('button');
   saveEditButton.innerHTML = '<a href="#"><span><i class="fas fa-save"></i></span></a>'; // Font Awesome save icon
-  saveEditButton.className = 'saveEditButton'
+  saveEditButton.className = 'saveEditButton';
+
   // Create the second button (DELETE) using Font Awesome icons
   const deleteButton = document.createElement('button');
   deleteButton.innerHTML = '<a href="#"><span><i class="fa fa-trash"></i></span></a>'; // Font Awesome trash icon
-  deleteButton.className = 'deleteButton'
+  deleteButton.className = 'deleteButton';
+
   // Function to toggle between SAVE and EDIT
   saveEditButton.addEventListener('click', function() {
     const icon = saveEditButton.querySelector('i');
@@ -40,14 +43,19 @@ function createNote() {
     divNote.remove();
   });
 
-  // Append input and buttons to the div
   divNote.appendChild(inputText);
   buttonsContainer.appendChild(deleteButton);
   divNote.appendChild(buttonsContainer);
   buttonsContainer.appendChild(saveEditButton);
 
-  // Get the notesContainer and append the divNote to it
+  divNote.classList.add('new-note');
+
+  setTimeout(() => {
+    divNote.classList.add('show');
+    
+    divNote.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 10);
+
   const notesContainer = document.getElementById('notesContainer');
   notesContainer.appendChild(divNote);
 }
-
