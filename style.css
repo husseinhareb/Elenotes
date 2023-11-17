@@ -42,6 +42,10 @@ body {
   width: 100%;
   height: 30px;
   background-color: #EAC5D8;
+  border-color: #7FBEEB;
+}
+.inputText:focus{
+  outline: #7FBEEB;
 }
 .buttonsContainer {
   display: flex;
@@ -73,11 +77,12 @@ body {
   position: relative;
   width: 60px;
   height: 60px;
+  outline: #EAC5D8;
 }
 
 #addNote:hover {
   cursor: pointer;
-  border: 2px solid #6d7f89;
+  border: 2px solid #EAC5D8;
 }
 
 
@@ -133,4 +138,11 @@ a:hover:after{
 .new-note.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.new-note.fade-out {
+  opacity: 0;
+  transform: translateY(20px); 
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
 }
