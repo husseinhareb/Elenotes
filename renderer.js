@@ -22,9 +22,9 @@ function createNote() {
   const deleteButton = document.createElement('button');
   deleteButton.innerHTML = '<a href="#"><span><i class="fa fa-trash"></i></span></a>'; // Font Awesome trash icon
   deleteButton.className = 'deleteButton';
-
   // Function to toggle between SAVE and EDIT
   saveEditButton.addEventListener('click', function() {
+
     const icon = saveEditButton.querySelector('i');
 
     if (icon.classList.contains('fa-save')) {
@@ -40,9 +40,19 @@ function createNote() {
 
   // Function to delete divNote on DELETE click
   deleteButton.addEventListener('click', function() {
-    divNote.remove();
+    divNote.classList.add('fade-out');
+  
+    divNote.addEventListener('transitionend', function() {
+      divNote.remove();
+    });
+  
+  
+    setTimeout(() => {
+      divNote.remove();
+    }, 500); 
   });
-
+  
+  
   divNote.appendChild(inputText);
   buttonsContainer.appendChild(deleteButton);
   divNote.appendChild(buttonsContainer);
@@ -59,3 +69,5 @@ function createNote() {
   const notesContainer = document.getElementById('notesContainer');
   notesContainer.appendChild(divNote);
 }
+
+
