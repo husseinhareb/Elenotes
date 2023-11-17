@@ -1,7 +1,11 @@
 const { app, BrowserWindow } = require('electron');
-
+const electronReload = require('electron-reload');
 let mainWindow;
 
+
+electronReload(__dirname, {
+  electron: require(`${__dirname}/node_modules/electron`)
+});
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 280,
@@ -28,3 +32,4 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
   if (mainWindow === null) createWindow();
 });
+
