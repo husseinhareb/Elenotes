@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elenotes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="renderer.js"></script>
 </head>
-<body onload="createNote()">
-
+<body>
+  <div class="nav">Elenotes</div>
   <div id="notesContainer">
+    <div class="divNote">
+      <input type="text" id="note" placeholder="Enter Your Note...">
+      <div class="buttonsContainer">
+      <button id="addNote" class="addNote"><a href="#"><span><i class="fas fa-save"></i></span></a></button>
+    </div>
+    </div>
+    <div id="list"></div>
   </div>
-  <div>
-  <button id="addNote" onclick="createNote()">
-    <i class="fa fa-plus" aria-hidden="true"></i> 
-  </button>
-</div>
-
+  
+  <script src="renderer.js"></script>
 </body>
 </html>
