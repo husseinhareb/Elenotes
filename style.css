@@ -22,7 +22,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; 
+}
+
+.buttonsContainer button {
+  margin-right: 5px;
 }
 
 
@@ -37,112 +46,57 @@ body {
   display: none; 
 }
 
-
-.inputText{
+#note{
   width: 100%;
   height: 30px;
   background-color: #EAC5D8;
   border-color: #7FBEEB;
 }
-.inputText:focus{
+#note:focus{
   outline: #7FBEEB;
 }
-.buttonsContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px; 
-}
-
-.buttonsContainer button {
-  margin-right: 5px;
-}
 
 
-#button-container {
-  display: flex;
-  height: 100vh;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-#notesContainer{
-  margin-bottom: 20px;
-}
-#addNote {
-  border: 2px solid #ffffff;
-  border-radius: 50%;
+
+.addNote, .editNote{
   background-color: transparent;
-  color: #ffffff;
-  font-size: 12px;
-  position: relative;
-  width: 60px;
-  height: 60px;
-  outline: #EAC5D8;
-}
-
-#addNote:hover {
-  cursor: pointer;
-  border: 2px solid #EAC5D8;
-}
-
-
-.saveEditButton, .deleteButton{
-background-color: transparent;
-border: 1px solid #EAC5D8 ;
-}
-
-
-a{
-  display: block;
-  width: 50px;
-  height: 25px;
-  font-size: 15px;
-  color: #333;
+  border: 1px solid #EAC5D8 ;
+  }
   
-  letter-spacing: 2px;
-  text-align: center;
-  position: relative;
-  transition: all .35s;
-}
-
-a span{
-  position: relative;
-  z-index: 2;
-}
-
-a:after{
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #EAC5D8;
-  transition: all .35s;
-}
-
-a:hover{
-  color: #fff;
-}
-
-a:hover:after{
-  width: 100%;
-}
-
-.new-note {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.new-note.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.new-note.fade-out {
-  opacity: 0;
-  transform: translateY(20px); 
-  transition: opacity 0.7s ease, transform 0.7s ease;
-
-}
+  
+  a{
+    display: block;
+    width: 50px;
+    height: 25px;
+    font-size: 15px;
+    color: #333;
+    
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+  }
+  
+  a span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  a:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #EAC5D8;
+    transition: all .35s;
+  }
+  
+  a:hover{
+    color: #7FBEEB;
+  }
+  
+  a:hover:after{
+    width: 100%;
+  }
