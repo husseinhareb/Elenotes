@@ -1,0 +1,16 @@
+{
+  "name": "elenotes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^27.1.0",
+    "nedb": "^1.8.0"
+  }
+}
