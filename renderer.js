@@ -7,7 +7,6 @@ let list = document.getElementById("list");
 
 let notes = [];
 
-// ... (existing code)
 
 function loadNotes() {
   list.innerHTML = "";
@@ -22,6 +21,8 @@ function loadNotes() {
       </div>`;
   });
 
+
+
   // Add event listeners for delete buttons
   let deleteButtons = document.getElementsByClassName("deleteNote");
   Array.from(deleteButtons).forEach((button) => {
@@ -32,13 +33,14 @@ function loadNotes() {
   });
 }
 
-// ... (existing code)
 
 
 window.onload = async () => {
   notes = await ipcRenderer.invoke("get_data");
   loadNotes();
 };
+
+
 
 btn.onclick = () => {
   if (title !== "" && note !== "") {
