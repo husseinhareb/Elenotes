@@ -50,6 +50,8 @@ app.addListener("window-all-closed", () => {
   }
 });
 
+
+
 //all the ipc calls
 ipcMain.on("save_note", (e, note) => {
   datastore.insert(note, (err, new_doc) => {
@@ -62,6 +64,7 @@ ipcMain.on("save_note", (e, note) => {
     }
   });
 });
+
 
 ipcMain.handle("get_data", (e) => {
   return new Promise((resolve, reject) => {
@@ -76,3 +79,12 @@ ipcMain.handle("get_data", (e) => {
 });
 
 
+ipcMain.on("delete_all_notes", () => {
+  datastore.remove({}, { multi: true }, (err, numRemoved) => {
+    if (err) {
+      console.log("Error deleting notes:", err);
+    } else {
+      console.log("Deleted", numRemoved, "notes successfully");
+    }
+  });
+});
