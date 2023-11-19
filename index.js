@@ -112,3 +112,26 @@ ipcMain.on("delete_note", (e, index) => {
     }
   });
 });
+
+
+ipcMain.on("edit_note", (e, { index, note }) => {
+  datastore.find({}, (err, docs) => {
+    if (err) {
+      console.log("Error finding notes:", err);
+    } else {
+      if (docs.length > index) {
+        const noteToEdit = docs[index];
+        // Update the note in the database using its _id
+        datastore.update({ _id: noteToEdit._id }, { $set: { note } }, {}, (err, numReplaced) => {
+          if (err) {
+            console.log("Error updating note:", err);
+          } else {
+            console.log("Updated note successfully:", note);
+          }
+        });
+      } else {
+        console.log("Invalid index for editing");
+      }
+    }
+  });
+});
