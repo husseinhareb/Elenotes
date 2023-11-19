@@ -104,17 +104,18 @@ function saveEditedNoteAtIdx(index, updatedNote) {
 
 
 btn.onclick = () => {
-  if (title !== "" && note !== "") {
+  if (note.value.trim() !== "") {
     let _note = {
       note: note.value,
     };
 
     notes.push(_note);
     loadNotes();
-
     ipcRenderer.send("save_note", _note);
+
+    // Clear the note input field after adding the note
+    note.value = ""; // Set the input value to an empty string
   } else {
-    window.alert("please fill all the things and try again");
+    window.alert("Please enter a note before adding.");
   }
 };
-
