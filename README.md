@@ -43,7 +43,7 @@ Follow these steps to run the app locally:
 2. **Install dependencies**:
 
     ```bash
-    cd Elenotes
+    cd Elenotes/src
     npm install electron --save-dev
     ```
 
