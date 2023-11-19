@@ -12,6 +12,6 @@ Simple note taking app written using [Electron](https://www.electronjs.org/).
 - **Deleting Notes**: 
 - ![ezgif com-resize](https://github.com/husseinhareb/Elenotes/assets/88323940/08344844-1707-44eb-98e9-fbc2a3f29f10)
 
-- **Delete All Notes**: onality.
-![deleteAll-note](https://github.com/husseinhareb/Elenotes/assets/88323940/ef367a2f-80b4-427d-943a-c70bafed7fda)
+- **Delete All Notes**:
+- ![deleteAll-note](https://github.com/husseinhareb/Elenotes/assets/88323940/ef367a2f-80b4-427d-943a-c70bafed7fda)
 
