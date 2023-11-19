@@ -115,6 +115,9 @@ btn.onclick = () => {
 
     // Clear the note input field after adding the note
     note.value = ""; // Set the input value to an empty string
+
+    // Scroll to the bottom of the notes container
+    document.getElementById("notesContainer").scrollTop = document.getElementById("notesContainer").scrollHeight;
   } else {
     window.alert("Please enter a note before adding.");
   }
