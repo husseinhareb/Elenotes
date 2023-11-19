@@ -18,7 +18,7 @@ function loadNotes() {
     input.type = "text";
     input.className = "noteInput";
     input.placeholder = "Enter Your Note...";
-    input.value = `${idx}- ${note.note}`;
+    input.value = note.note;
     input.disabled = true;
     input.style.maxWidth = "200px";
 

@@ -1,7 +1,7 @@
-*{
+* {
   font-family: 'Font Awesome';
-
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -12,12 +12,16 @@ body {
   background-color: #98cbde;
 }
 
+.title {
+  font-family: 'Font Awesome';
+  font-weight: bold;
+}
+
 .divNote {
-  border: 2px solid #EAC5D8;
-  background-color: #7FBEEB;
+  border: 2px solid #eac5d8;
+  background-color: #7fbeeb;
   padding: 10px;
-  margin-bottom: 7px;
-  margin-top: 7px;
+  margin: 7px 0;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -27,149 +31,150 @@ body {
 .buttonsContainer {
   display: flex;
   justify-content: center;
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
 .buttonsContainer button {
   margin-right: 5px;
 }
 
+#list {
+  margin-top: 10px;
+}
 
 #notesContainer {
   overflow-y: scroll;
-  overscroll-behavior-y: none; 
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  overscroll-behavior-y: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 #notesContainer::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
-#note{
+#note,.noteInput {
   width: 100%;
   height: 30px;
-  background-color: #EAC5D8;
-  border-color: #7FBEEB;
-}
-#note:focus{
-  outline: #7FBEEB;
+  background-color: #eac5d8;
+  border-color: #98cbde;
 }
 
-.noteInput{
-  background-color: #EAC5D8;
-  width: 100%;
-  height: 30px;
-  background-color: #EAC5D8;
-  border-color: #7FBEEB;
+#note:focus,
+.noteInput:focus {
+  outline: #7fbeeb;
 }
-.noteInput:focus{
-  outline: #7FBEEB;
-}
-.addNote, .editNote,.deleteNote{
+
+.addNote,
+.editNote,
+.deleteNote,
+.saveNote {
   background-color: transparent;
-  border: 1px solid #EAC5D8 ;
-  }
-  
-  
-  a{
-    display: block;
-    width: 50px;
-    height: 25px;
-    font-size: 15px;
-    color: #333;
-    
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    transition: all .35s;
-  }
-  
-  a span{
-    position: relative;
-    z-index: 2;
-  }
-  
-  a:after{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #EAC5D8;
-    transition: all .35s;
-  }
-  
-  a:hover{
-    color: #7FBEEB;
-  }
-  
-  a:hover:after{
-    width: 100%;
-  }
+  border: 1px solid #eac5d8;
+}
 
+a {
+  display: block;
+  width: 50px;
+  height: 25px;
+  font-size: 15px;
+  color: #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+}
 
-  
+a span {
+  position: relative;
+  z-index: 2;
+}
 
+a:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #eac5d8;
+  transition: all 0.35s;
+}
 
+a:hover {
+  color: #7fbeeb;
+}
+
+a:hover:after {
+  width: 100%;
+}
+
+/* Delete All Notes Styles */
+#divDeleteAll {
+  margin: 5px 0;
+}
 
 .deleteAllNotes {
-width: 150px;
-height: 50px;
-cursor: pointer;
-display: flex;
-align-items: center;
-background: #EAC5D8;
-border: none;
-margin: 0;
-padding: 0;
-border-radius: 5px;
-box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-background: #EAC5D8;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: #eac5d8;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  transition: 200ms;
 }
-.deleteAllNotes,  .deleteAllNotes span {
-transition: 200ms;
+
+.deleteAllNotes, 
+.deleteAllNotes span {
+  transition: 200ms;
 }
+
 .deleteAllNotes .text {
-transform: translateX(35px);
-color: white;
-font-weight: bold;
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
 }
- 
+
 .deleteAllNotes .icon {
-position: absolute;
-border-left: 1px solid #7FBEEB;
-transform: translateX(110px);
-height: 40px;
-width: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
+  position: absolute;
+  border-left: 1px solid #98cbde;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
- 
+
 .deleteAllNotes svg {
-width: 15px;
-fill: #eee;
+  width: 15px;
+  fill: #eee;
 }
- 
+
 .deleteAllNotes:hover {
-background: #7FBEEB;
+  background: #7fbeeb;
+  color: #eac5d8;
 }
- 
+
 .deleteAllNotes:hover .text {
-color: transparent;
+  color: transparent;
 }
- 
+
 .deleteAllNotes:hover .icon {
-width: 150px;
-border-left: none;
-transform: translateX(0);
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
 }
+
 .deleteAllNotes:focus {
-outline: none;
+  outline: none;
 }
- 
+
 .deleteAllNotes:active .icon svg {
-transform: scale(0.8);
+  transform: scale(0.8);
 }
