@@ -1,6 +1,5 @@
 let { ipcRenderer } = require("electron");
 
-let title = document.getElementById("title");
 let note = document.getElementById("note");
 let btn = document.getElementById("addNote");
 let list = document.getElementById("list");
@@ -33,7 +32,7 @@ function loadNotes() {
     deleteButton.className = "deleteNote";
     deleteButton.innerHTML = `<a href="#"><span><i class="fa fa-trash"></i></span></a>`;
     deleteButton.addEventListener("click", () => {
-      deleteNoteAtIndex(idx);
+      deleteNoteAtIndexWithAnimation(idx, div);
     });
 
     editButton.addEventListener("click", () => {
@@ -64,13 +63,27 @@ function loadNotes() {
     div.appendChild(buttonsContainer);
 
     list.appendChild(div);
+
+    // Trigger the sliding animation for newly created note
+    const isLastNote = idx === notes.length - 1;
+
+    // Apply animation only to the last note element
+    if (isLastNote) {
+      div.style.animation = "slideIn 0.5s";
+    }
   });
 }
 
-function deleteNoteAtIndex(index) {
-  notes.splice(index, 1);
-  loadNotes();
-  ipcRenderer.send("delete_note", index);
+function deleteNoteAtIndexWithAnimation(index, noteDiv) {
+  // Trigger the sliding animation for the note being deleted
+  noteDiv.style.animation = "slideOut 0.5s";
+
+  // Wait for the animation to complete before removing the note
+  setTimeout(() => {
+    notes.splice(index, 1);
+    loadNotes();
+    ipcRenderer.send("delete_note", index);
+  }, 500); // Adjust the timeout to match the animation duration
 }
 
 
@@ -113,12 +126,11 @@ btn.onclick = () => {
     loadNotes();
     ipcRenderer.send("save_note", _note);
 
-    // Clear the note input field after adding the note
-    note.value = ""; // Set the input value to an empty string
+    note.value = ""; 
 
-    // Scroll to the bottom of the notes container
     document.getElementById("notesContainer").scrollTop = document.getElementById("notesContainer").scrollHeight;
   } else {
     window.alert("Please enter a note before adding.");
   }
 };
+

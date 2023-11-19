@@ -65,10 +65,7 @@ body {
   outline: #7fbeeb;
 }
 
-.addNote,
-.editNote,
-.deleteNote,
-.saveNote {
+.addNote,.editNote,.deleteNote,.saveNote {
   background-color: transparent;
   border: 1px solid #eac5d8;
 }
@@ -177,4 +174,30 @@ a:hover:after {
 
 .deleteAllNotes:active .icon svg {
   transform: scale(0.8);
+}
+
+
+/* CSS for sliding animation */
+/* CSS for sliding in */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CSS for sliding out */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
