@@ -88,3 +88,27 @@ ipcMain.on("delete_all_notes", () => {
     }
   });
 });
+
+// index.js
+// ... (previous code)
+
+ipcMain.on("delete_note", (e, index) => {
+  datastore.find({}, (err, docs) => {
+    if (err) {
+      console.log("Error finding notes:", err);
+    } else {
+      if (docs.length > index) {
+        const noteToDelete = docs[index];
+        datastore.remove({ _id: noteToDelete._id }, {}, (err, numRemoved) => {
+          if (err) {
+            console.log("Error deleting note:", err);
+          } else {
+            console.log("Deleted note successfully:", noteToDelete);
+          }
+        });
+      } else {
+        console.log("Invalid index for deletion");
+      }
+    }
+  });
+});
