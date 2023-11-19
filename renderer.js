@@ -7,7 +7,6 @@ let list = document.getElementById("list");
 
 let notes = [];
 
-// ... (existing code remains the same)
 
 function loadNotes() {
   list.innerHTML = "";
@@ -30,19 +29,15 @@ function loadNotes() {
       const divNote = event.target.closest(".divNote");
       const index = divNote.getAttribute("data-index");
 
-      // Remove the divNote from the DOM
       divNote.remove();
 
-      // Remove the corresponding note from the 'notes' array
       notes.splice(index, 1);
 
-      // Re-render the notes after deletion
       loadNotes();
     });
   });
 }
 
-// ... (existing code remains the same)
 
 
 window.onload = async () => {
