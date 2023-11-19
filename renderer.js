@@ -21,9 +21,9 @@ function loadNotes() {
       </div>`;
   });
 
-  // Add event listeners for delete buttons
-  let deleteButtons = document.getElementsByClassName("deleteNote");
-  Array.from(deleteButtons).forEach((button) => {
+
+let deleteButtons = document.getElementsByClassName("deleteNote");
+    Array.from(deleteButtons).forEach((button) => {
     button.addEventListener("click", (event) => {
       
       const divNote = event.target.closest(".divNote");
@@ -40,11 +40,23 @@ function loadNotes() {
 
 
 
+
 window.onload = async () => {
   notes = await ipcRenderer.invoke("get_data");
   loadNotes();
-};
 
+  const deleteAllBtn = document.getElementById("deleteAllNotes");
+  deleteAllBtn.addEventListener("click", () => {
+    // Remove all notes from the UI
+    list.innerHTML = "";
+    
+    // Delete all notes from the database
+    ipcRenderer.send("delete_all_notes");
+    
+    // Clear the 'notes' array
+    notes = [];
+  });
+};
 
 
 btn.onclick = () => {
