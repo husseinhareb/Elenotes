@@ -58,7 +58,7 @@ body {
 
 
 
-.addNote, .editNote{
+.addNote, .editNote,.deleteNote{
   background-color: transparent;
   border: 1px solid #EAC5D8 ;
   }
@@ -100,3 +100,65 @@ body {
   a:hover:after{
     width: 100%;
   }
+
+
+  
+  .deleteAllNotes {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: #EAC5D8;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: #EAC5D8;
+ }
+ .deleteAllNotes,  .deleteAllNotes span {
+  transition: 200ms;
+ }
+ .deleteAllNotes .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+ }
+ 
+ .deleteAllNotes .icon {
+  position: absolute;
+  border-left: 1px solid #7FBEEB;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .deleteAllNotes svg {
+  width: 15px;
+  fill: #eee;
+ }
+ 
+ .deleteAllNotes:hover {
+  background: #7FBEEB;
+ }
+ 
+ .deleteAllNotes:hover .text {
+  color: transparent;
+ }
+ 
+ .deleteAllNotes:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+ }
+ .deleteAllNotes:focus {
+  outline: none;
+ }
+ 
+ .deleteAllNotes:active .icon svg {
+  transform: scale(0.8);
+ }
