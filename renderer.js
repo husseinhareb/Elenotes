@@ -19,6 +19,8 @@ function loadNotes() {
     input.className = "noteInput";
     input.placeholder = "Enter Your Note...";
     input.value = `${idx}- ${note.note}`;
+    input.disabled = true;
+    input.style.maxWidth = "200px";
 
     const buttonsContainer = document.createElement("div");
     buttonsContainer.className = "buttonsContainer";
@@ -32,6 +34,27 @@ function loadNotes() {
     deleteButton.innerHTML = `<a href="#"><span><i class="fa fa-trash"></i></span></a>`;
     deleteButton.addEventListener("click", () => {
       deleteNoteAtIndex(idx);
+    });
+
+    editButton.addEventListener("click", () => {
+      const dataIndex = div.getAttribute("data-index");
+      const inputField = div.querySelector(".noteInput");
+
+      // Enable input field for editing
+      inputField.disabled = false;
+
+      // Add a "Save" button to save changes
+      const saveButton = document.createElement("button");
+      saveButton.className = "saveNote";
+      saveButton.innerHTML = `<a href="#"><span><i class="fa fa-save"></i></span></a>`;
+      saveButton.addEventListener("click", () => {
+        // Save changes when the "Save" button is clicked
+        const updatedNote = inputField.value;
+        saveEditedNoteAtIdx(dataIndex, updatedNote);
+      });
+
+      // Replace editButton with saveButton
+      buttonsContainer.replaceChild(saveButton, editButton);
     });
 
     buttonsContainer.appendChild(editButton);
@@ -70,6 +93,16 @@ window.onload = async () => {
 };
 
 
+function saveEditedNoteAtIdx(index, updatedNote) {
+  // Update notes array
+  notes[index].note = updatedNote;
+  loadNotes();
+
+  // Send the updated note to the main process to update the database
+  ipcRenderer.send("edit_note", { index, note: updatedNote });
+}
+
+
 btn.onclick = () => {
   if (title !== "" && note !== "") {
     let _note = {
@@ -84,3 +117,4 @@ btn.onclick = () => {
     window.alert("please fill all the things and try again");
   }
 };
+
