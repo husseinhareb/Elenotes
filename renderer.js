@@ -7,37 +7,48 @@ let list = document.getElementById("list");
 
 let notes = [];
 
-
 function loadNotes() {
   list.innerHTML = "";
   notes.forEach((note, idx) => {
-    list.innerHTML += `
-      <div class="divNote" data-index="${idx}">
-        <input type="text" class="noteInput" placeholder="Enter Your Note..." value="${idx}- ${note.note}">
-        <div class="buttonsContainer">
-          <button class="editNote"><a href="#"><span><i class="fa fa-pencil-alt"></i></span></a></button>
-          <button class="deleteNote"><a href="#"><span><i class="fa fa-trash"></i></span></a></button>
-        </div>
-      </div>`;
-  });
+    const div = document.createElement("div");
+    div.className = "divNote";
+    div.setAttribute("data-index", idx);
 
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "noteInput";
+    input.placeholder = "Enter Your Note...";
+    input.value = `${idx}- ${note.note}`;
 
-let deleteButtons = document.getElementsByClassName("deleteNote");
-    Array.from(deleteButtons).forEach((button) => {
-    button.addEventListener("click", (event) => {
-      
-      const divNote = event.target.closest(".divNote");
-      const index = divNote.getAttribute("data-index");
+    const buttonsContainer = document.createElement("div");
+    buttonsContainer.className = "buttonsContainer";
 
-      divNote.remove();
+    const editButton = document.createElement("button");
+    editButton.className = "editNote";
+    editButton.innerHTML = `<a href="#"><span><i class="fa fa-pencil-alt"></i></span></a>`;
 
-      notes.splice(index, 1);
-
-      loadNotes();
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "deleteNote";
+    deleteButton.innerHTML = `<a href="#"><span><i class="fa fa-trash"></i></span></a>`;
+    deleteButton.addEventListener("click", () => {
+      deleteNoteAtIndex(idx);
     });
+
+    buttonsContainer.appendChild(editButton);
+    buttonsContainer.appendChild(deleteButton);
+
+    div.appendChild(input);
+    div.appendChild(buttonsContainer);
+
+    list.appendChild(div);
   });
 }
 
+function deleteNoteAtIndex(index) {
+  notes.splice(index, 1);
+  loadNotes();
+  ipcRenderer.send("delete_note", index);
+}
 
 
 
