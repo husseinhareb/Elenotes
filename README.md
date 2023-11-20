@@ -29,7 +29,7 @@ A simple note-taking application built with [Electron](https://www.electronjs.or
 4. Run the executable file (`Elenotes.exe` for Windows, `Elenotes` for Linux).
 
 ### Getting Started
-Absolutely, creating a clear and concise README for your GitHub repository is crucial for helping others understand your project. Here's an example structure for your note-taking app:
+
 
 
 Follow these steps to run the app locally:
