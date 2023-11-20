@@ -8,7 +8,7 @@ A simple note-taking application built with [Electron](https://www.electronjs.or
 - **Note Creation**: Click the "Add" icon and start typing your note.
 - ![addNotes](https://github.com/husseinhareb/Elenotes/assets/88323940/523b36f4-c41d-47c1-9149-aaff7da8f4be)
 
-- **Editing Notes**: Click the "Edit" icon and start typing your note.
+- **Editing Notes**: Click the "Edit" icon and start editing your previous note.
 - ![edit-note](https://github.com/husseinhareb/Elenotes/assets/88323940/af6d7213-bf36-4d78-9130-2938ad18db45)
 - **Deleting Notes**: Click the delete icon next to the note.
 - ![ezgif com-resize](https://github.com/husseinhareb/Elenotes/assets/88323940/08344844-1707-44eb-98e9-fbc2a3f29f10)
